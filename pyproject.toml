@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pycc-interp"
+version = "0.1.0"
+description = "A C99 toolchain and an LP64 interpreter with memory-error detection"
+readme = "README.md"
+license = { file = "LICENSE" }
+authors = [{ name = "Phone Hseng" }]
+requires-python = ">=3.12"
+dependencies = []
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: C",
+    "License :: OSI Approved :: MIT License",
+    "Topic :: Software Development :: Compilers",
+    "Topic :: Software Development :: Interpreters",
+    "Topic :: Education",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=8"]
+
+[project.scripts]
+pycc = "pycc.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/phonehseng/pycc"
+
+[tool.setuptools.packages.find]
+include = ["pycc*"]
+
+[tool.setuptools.package-data]
+"pycc.interp.stdlib" = ["headers/*.h"]
